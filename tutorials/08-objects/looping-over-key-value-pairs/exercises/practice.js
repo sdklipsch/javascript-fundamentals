@@ -13,6 +13,11 @@ const stationPingsMs = {
 	baseCidonia: 310,
 };
 
+for (let stationKey in stationPingsMs) {
+    let stationPing = stationPingsMs[stationKey]
+    console.log(`Connection to ${stationKey} latency is: ${stationPing}`)
+}
+
 /*
     TODO: Use a 'for...in' loop to iterate through the 'stationPingsMs' object.
     Log a network diagnostic statement for each entry using a template literal:
@@ -34,3 +39,9 @@ const pdcAmmoLocker = {
     log an emergency update using a template literal: "CRITICAL DEPLETION: [key] ammo 
     is completely empty!"
 */
+
+for (let ammoKey of Object.keys(pdcAmmoLocker)) {
+    if (pdcAmmoLocker[ammoKey] === 0) {
+        console.log(`CRITICAL DEPLETION: ${ammoKey} ammo is completely empty!`);
+    }
+}
